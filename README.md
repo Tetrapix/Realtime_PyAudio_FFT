@@ -2,7 +2,7 @@
 <p align="center">
   <img src="./assets/teaser.gif">
 </p>
-
+ 
 ### A simple package to do realtime audio analysis in native Python, using PyAudio and Numpy to extract and visualize FFT features from a live audio stream.
 
 [**Demo Video**](https://youtu.be/FnP2bkzU4oo)
