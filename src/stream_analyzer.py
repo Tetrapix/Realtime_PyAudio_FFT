@@ -62,9 +62,10 @@ def matrixerize(input,mode,colour_M,client):
         #use that for pickung "colourpixels" from colourmatrix
         out = np.copy(colour_M)
         out[np.where(Ones_M == 0)] = [0,0,0]
-        out = np.reshape(out,(x*y,3))
+        #out = np.reshape(out,(x*y,3))
+        out = list(map(tuple, out.reshape((x*y, 3))))
         client.put_pixels(out)
-    print("Matrixerizezeit: ",time.time()-start)
+    #print("Matrixerizezeit: ",time.time()-start)
     return out
     
     
@@ -114,8 +115,8 @@ class Stream_Analyzer:
         client = opc.Client('digiwall:7890')
         minFreq_out = 50
         maxFreq_out = 10000
-        x_out = 10
-        y_out = 7
+        x_out = 8
+        y_out = 8
         output_Mode = 1
         #===================================NICHT MEHR FÜR BASTI :'( ==============
         self.maxFreq_out = maxFreq_out
