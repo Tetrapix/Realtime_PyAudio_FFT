@@ -21,7 +21,10 @@ def lin2log_Setup(val_len,start,end,n,fs):
     #creates a vector the "desired" logarithmic scaled frequencies from start-frequency to end-frequency
     despos = np.linspace(np.log10(start),np.log10(end),n)
     despos = np.power(10,despos)
-    despos = np.insert(despos,0,0)   
+    if despos[0] > 0:
+        despos = np.insert(despos,0,despos[0]-1)
+    else:
+        np.insert(despos,0,0)
     despos = np.round(despos)
     despos = despos.astype("int")
     
