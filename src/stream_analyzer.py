@@ -62,8 +62,8 @@ def matrixerize(input,mode,colour_M,client):
         #use that for pickung "colourpixels" from colourmatrix
         out = np.copy(colour_M)
         out[np.where(Ones_M == 0)] = [0,0,0]
-        for i in range(1,y,2):
-            out[:,i,:] = np.flip(out[:,i,:])
+        for i in range(0,x,2):
+            out[i,:] = np.flip(out[i,:],0)
         #out = np.reshape(out,(x*y,3))
         out = list(map(tuple, out.reshape((x*y, 3))))
         #print(out)
@@ -74,10 +74,10 @@ def matrixerize(input,mode,colour_M,client):
     
     
 def Colourmatrix(x,y):
-    image = np.zeros((y,x,3), dtype=np.uint8)
+    image = np.zeros((x,y,3), dtype=np.uint8)
     image = mpl.colors.rgb_to_hsv(image)
     for i in range(x):
-        image[:,i] = [i/(x)*280/360,1,1]
+        image[i,:] = [i/(x)*280/360,1,1]
     image = mpl.colors.hsv_to_rgb(image)*255
     image = image.astype(int)
     print("image=======:" ,image)
