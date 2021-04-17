@@ -62,8 +62,8 @@ def matrixerize(input,mode,colour_M,client):
         #use that for pickung "colourpixels" from colourmatrix
         out = np.copy(colour_M)
         out[np.where(Ones_M == 0)] = [0,0,0]
-        for i in range(1,x,2):
-            out[i,:,:] = np.flit(out[i,:,:])
+        for i in range(1,y,2):
+            out[:,i,:] = np.flip(out[:,i,:])
         #out = np.reshape(out,(x*y,3))
         out = list(map(tuple, out.reshape((x*y, 3))))
         #print(out)
