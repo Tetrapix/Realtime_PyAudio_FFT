@@ -77,7 +77,7 @@ def Colourmatrix(x,y):
     image = np.zeros((x,y,3), dtype=np.uint8)
     image = mpl.colors.rgb_to_hsv(image)
     for i in range(x):
-        image[i,:] = [i/(x)*280/360,1,1]
+        image[(i),:] = [(x-i-1)/(x)*280/360,1,1]
     image = mpl.colors.hsv_to_rgb(image)*255
     image = image.astype(int)
     print("image=======:" ,image)
@@ -117,9 +117,9 @@ class Stream_Analyzer:
         self.window_ratio = window_ratio
         #===================================FÜR BASTI :) ================================
         client = opc.Client('digiwall:7890')
-        minFreq_out = 50
+        minFreq_out = 200
         maxFreq_out = 10000
-        x_out = 8
+        x_out =24
         y_out = 8
         output_Mode = 1
         #===================================NICHT MEHR FÜR BASTI :'( ==============
