@@ -75,7 +75,7 @@ def matrixerize(input,mode,colour_M,client):
         out.insert(114,ins)
         out.insert(178,ins)
         #print(out)        
-        #client.put_pixels(out)
+        client.put_pixels(out)
     #print("Matrixerizezeit: ",time.time()-start)
     return out
     
