@@ -68,9 +68,14 @@ def matrixerize(input,mode,colour_M,client):
         for i in range(0,x,2):
             out[i,:] = np.flip(out[i,:],0)
         #out = np.reshape(out,(x*y,3))
-        out = list(map(tuple, out.reshape((x*y, 3))))
-        #print(out)
-        client.put_pixels(out)
+        out = out.reshape((x*y, 3))
+        out = list(map(tuple, out))
+        ins = [(0,0,0),(0,0,0),(0,0,0),(0,0,0),(0,0,0),(0,0,0),(0,0,0),(0,0,0),(0,0,0),(0,0,0),(0,0,0),(0,0,0),(0,0,0),(0,0,0)]
+        out.insert(50,ins)
+        out.insert(114,ins)
+        out.insert(178,ins)
+        #print(out)        
+        #client.put_pixels(out)
     #print("Matrixerizezeit: ",time.time()-start)
     return out
     
